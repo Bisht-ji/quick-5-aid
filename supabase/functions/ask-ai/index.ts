@@ -24,7 +24,7 @@ serve(async (req) => {
       );
     }
 
-    // Get the user from the authorization header
+    // Get the JWT token from the authorization header
     const authHeader = req.headers.get('Authorization');
     if (!authHeader) {
       return new Response(
@@ -33,13 +33,27 @@ serve(async (req) => {
       );
     }
 
+    // Extract the JWT token
+    const token = authHeader.replace('Bearer ', '');
+    
+    // Create Supabase client with the user's JWT
     const supabaseClient = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
       Deno.env.get('SUPABASE_ANON_KEY') ?? '',
-      { global: { headers: { Authorization: authHeader } } }
+      {
+        global: {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+        auth: {
+          persistSession: false,
+        },
+      }
     );
 
-    const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
+    // Get user from JWT
+    const { data: { user }, error: userError } = await supabaseClient.auth.getUser(token);
     
     if (userError || !user) {
       console.error('Error getting user:', userError);
