@@ -18,7 +18,7 @@ const Landing = () => {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">
-            Hovering
+            5.B.M
           </h1>
 
           {/* Description */}

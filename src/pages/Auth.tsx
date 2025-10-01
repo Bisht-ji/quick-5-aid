@@ -83,7 +83,7 @@ const Auth = () => {
           </CardTitle>
           <CardDescription>
             {isLogin
-              ? "Sign in to access Hovering"
+              ? "Sign in to access 5.B.M"
               : "Sign up to start getting instant answers"}
           </CardDescription>
         </CardHeader>

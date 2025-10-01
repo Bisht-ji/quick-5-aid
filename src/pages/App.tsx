@@ -131,7 +131,7 @@ const AppPage = () => {
             <div className="p-2 bg-primary/10 rounded-lg">
               <Sparkles className="w-5 h-5 text-primary" />
             </div>
-            <h1 className="text-xl font-bold tracking-tight">Hovering</h1>
+            <h1 className="text-xl font-bold tracking-tight">5.B.M</h1>
           </div>
           <Button variant="outline" onClick={handleSignOut} size="sm" className="hover:bg-secondary">
             <LogOut className="w-4 h-4 mr-2" />
