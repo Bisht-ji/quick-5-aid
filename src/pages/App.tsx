@@ -123,53 +123,56 @@ const AppPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-secondary/30">
       {/* Header */}
-      <header className="border-b bg-card sticky top-0 z-10">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-6 h-6 text-primary" />
-            <h1 className="text-xl font-bold">Hovering</h1>
+      <header className="border-b bg-card sticky top-0 z-10 shadow-sm">
+        <div className="container mx-auto px-6 py-5 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-primary/10 rounded-lg">
+              <Sparkles className="w-5 h-5 text-primary" />
+            </div>
+            <h1 className="text-xl font-bold tracking-tight">Hovering</h1>
           </div>
-          <Button variant="outline" onClick={handleSignOut} size="sm">
+          <Button variant="outline" onClick={handleSignOut} size="sm" className="hover:bg-secondary">
             <LogOut className="w-4 h-4 mr-2" />
             Sign Out
           </Button>
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-6 py-10">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-8">
             {/* Question Input */}
-            <Card className="p-6 border">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="text-sm font-medium mb-2 block">
+            <Card className="p-8 border shadow-sm hover:shadow-md transition-shadow bg-card">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-3">
+                  <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                     Ask your question
                   </label>
                   <Textarea
                     value={question}
                     onChange={(e) => setQuestion(e.target.value)}
                     placeholder="What do you want to know?"
-                    className="min-h-[120px] resize-none"
+                    className="min-h-[140px] resize-none text-base focus:ring-2 focus:ring-primary/20 border-muted-foreground/20"
                     disabled={loading}
                   />
                 </div>
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full py-6 text-base font-medium shadow-sm hover:shadow-md transition-all"
                   disabled={loading || !question.trim()}
                 >
                   {loading ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                       Getting answer...
                     </>
                   ) : (
                     <>
-                      <Send className="mr-2 h-4 w-4" />
+                      <Send className="mr-2 h-5 w-5" />
                       Get Answer
                     </>
                   )}
@@ -179,28 +182,37 @@ const AppPage = () => {
 
             {/* Current Answer */}
             {currentAnswer && (
-              <Card className="p-6 border border-primary bg-card">
-                <div className="flex justify-between items-start mb-4">
-                  <h2 className="text-lg font-semibold flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-primary" />
+              <Card className="p-8 border-2 border-primary/30 bg-card shadow-lg hover:shadow-xl transition-shadow">
+                <div className="flex justify-between items-start mb-6">
+                  <h2 className="text-xl font-bold flex items-center gap-3">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <Sparkles className="w-5 h-5 text-primary" />
+                    </div>
                     Your Answer
                   </h2>
                   <Button
-                    variant="ghost"
+                    variant="outline"
                     size="sm"
                     onClick={() => copyToClipboard(currentAnswer)}
+                    className="hover:bg-secondary hover:border-primary/50 transition-all"
                   >
                     {copied ? (
-                      <Check className="w-4 h-4" />
+                      <>
+                        <Check className="w-4 h-4 mr-2" />
+                        Copied
+                      </>
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <>
+                        <Copy className="w-4 h-4 mr-2" />
+                        Copy
+                      </>
                     )}
                   </Button>
                 </div>
-                <div className="prose prose-sm max-w-none">
-                  <div className="space-y-3 text-foreground">
+                <div className="bg-secondary/30 rounded-lg p-6 border border-border/50">
+                  <div className="space-y-4 text-foreground">
                     {currentAnswer.split('\n').map((line, i) => (
-                      <p key={i} className="leading-relaxed">
+                      <p key={i} className="leading-relaxed text-base">
                         {line}
                       </p>
                     ))}

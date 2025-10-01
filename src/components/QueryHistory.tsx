@@ -17,18 +17,22 @@ interface QueryHistoryProps {
 
 const QueryHistory = ({ queries, onSelectQuery }: QueryHistoryProps) => {
   return (
-    <Card className="p-4 border sticky top-24">
-      <div className="flex items-center gap-2 mb-4">
-        <History className="w-5 h-5 text-primary" />
-        <h2 className="font-semibold">Recent Queries</h2>
+    <Card className="p-6 border shadow-sm hover:shadow-md transition-shadow bg-card sticky top-24">
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b">
+        <div className="p-2 bg-primary/10 rounded-lg">
+          <History className="w-5 h-5 text-primary" />
+        </div>
+        <h2 className="font-bold text-lg">Recent Queries</h2>
       </div>
       
       <ScrollArea className="h-[600px] pr-4">
         {queries.length === 0 ? (
-          <div className="text-center py-8 text-muted-foreground">
-            <MessageSquare className="w-12 h-12 mx-auto mb-2 opacity-50" />
-            <p className="text-sm">No queries yet</p>
-            <p className="text-xs mt-1">Ask your first question!</p>
+          <div className="text-center py-12 text-muted-foreground">
+            <div className="p-4 bg-secondary/50 rounded-full w-fit mx-auto mb-4">
+              <MessageSquare className="w-12 h-12 mx-auto opacity-40" />
+            </div>
+            <p className="text-sm font-medium">No queries yet</p>
+            <p className="text-xs mt-2">Ask your first question to get started!</p>
           </div>
         ) : (
           <div className="space-y-3">
@@ -36,12 +40,12 @@ const QueryHistory = ({ queries, onSelectQuery }: QueryHistoryProps) => {
               <button
                 key={query.id}
                 onClick={() => onSelectQuery(query)}
-                className="w-full text-left p-3 rounded-lg border border-border hover:border-primary hover:bg-secondary transition-all group"
+                className="w-full text-left p-4 rounded-lg border border-border hover:border-primary hover:bg-secondary/50 hover:shadow-sm transition-all group"
               >
-                <p className="text-sm font-medium line-clamp-2 mb-1 group-hover:text-primary transition-colors">
+                <p className="text-sm font-medium line-clamp-2 mb-2 group-hover:text-primary transition-colors leading-snug">
                   {query.question}
                 </p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-muted-foreground font-medium">
                   {formatDistanceToNow(new Date(query.created_at), { addSuffix: true })}
                 </p>
               </button>
