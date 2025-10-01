@@ -17,7 +17,7 @@ interface QueryHistoryProps {
 
 const QueryHistory = ({ queries, onSelectQuery }: QueryHistoryProps) => {
   return (
-    <Card className="p-4 border-2 sticky top-24">
+    <Card className="p-4 border sticky top-24">
       <div className="flex items-center gap-2 mb-4">
         <History className="w-5 h-5 text-primary" />
         <h2 className="font-semibold">Recent Queries</h2>
@@ -36,7 +36,7 @@ const QueryHistory = ({ queries, onSelectQuery }: QueryHistoryProps) => {
               <button
                 key={query.id}
                 onClick={() => onSelectQuery(query)}
-                className="w-full text-left p-3 rounded-lg border border-border hover:border-primary/50 hover:bg-secondary/50 transition-all group"
+                className="w-full text-left p-3 rounded-lg border border-border hover:border-primary hover:bg-secondary transition-all group"
               >
                 <p className="text-sm font-medium line-clamp-2 mb-1 group-hover:text-primary transition-colors">
                   {query.question}

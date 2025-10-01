@@ -123,13 +123,13 @@ const AppPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+      <header className="border-b bg-card sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Sparkles className="w-6 h-6 text-primary" />
-            <h1 className="text-xl font-bold">AI Quick Helper</h1>
+            <h1 className="text-xl font-bold">Hovering</h1>
           </div>
           <Button variant="outline" onClick={handleSignOut} size="sm">
             <LogOut className="w-4 h-4 mr-2" />
@@ -143,7 +143,7 @@ const AppPage = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Question Input */}
-            <Card className="p-6 border-2">
+            <Card className="p-6 border">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="text-sm font-medium mb-2 block">
@@ -159,7 +159,7 @@ const AppPage = () => {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-purple-600"
+                  className="w-full"
                   disabled={loading || !question.trim()}
                 >
                   {loading ? (
@@ -179,7 +179,7 @@ const AppPage = () => {
 
             {/* Current Answer */}
             {currentAnswer && (
-              <Card className="p-6 border-2 border-primary/20 bg-gradient-to-br from-card to-primary/5">
+              <Card className="p-6 border border-primary bg-card">
                 <div className="flex justify-between items-start mb-4">
                   <h2 className="text-lg font-semibold flex items-center gap-2">
                     <Sparkles className="w-5 h-5 text-primary" />

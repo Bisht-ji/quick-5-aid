@@ -6,23 +6,19 @@ const Landing = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <div className="container mx-auto px-4 pt-20 pb-32">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">AI-Powered Answers</span>
+            <span className="text-sm font-medium text-foreground">AI-Powered Answers</span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-            Get Clear Answers
-            <br />
-            <span className="bg-gradient-to-r from-primary via-purple-500 to-accent bg-clip-text text-transparent">
-              In 5 Bullet Points
-            </span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground">
+            Hovering
           </h1>
 
           {/* Description */}
@@ -36,7 +32,7 @@ const Landing = () => {
             <Button
               size="lg"
               onClick={() => navigate("/auth")}
-              className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-purple-600 hover:shadow-lg hover:scale-105 transition-all"
+              className="text-lg px-8 py-6 hover:scale-105 transition-all"
             >
               Get Started Free
             </Button>
@@ -44,7 +40,7 @@ const Landing = () => {
               size="lg"
               variant="outline"
               onClick={() => navigate("/auth")}
-              className="text-lg px-8 py-6 border-2 hover:bg-secondary"
+              className="text-lg px-8 py-6 border-2"
             >
               Sign In
             </Button>
@@ -53,8 +49,8 @@ const Landing = () => {
 
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-8 mt-32 max-w-5xl mx-auto">
-          <div className="text-center space-y-4 p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all hover:shadow-lg">
-            <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
+          <div className="text-center space-y-4 p-6 rounded-lg bg-card border border-border hover:border-primary transition-all">
+            <div className="w-14 h-14 mx-auto rounded-full bg-secondary flex items-center justify-center">
               <Zap className="w-7 h-7 text-primary" />
             </div>
             <h3 className="text-xl font-semibold">Lightning Fast</h3>
@@ -63,9 +59,9 @@ const Landing = () => {
             </p>
           </div>
 
-          <div className="text-center space-y-4 p-6 rounded-2xl bg-card border border-border hover:border-accent/50 transition-all hover:shadow-lg">
-            <div className="w-14 h-14 mx-auto rounded-full bg-accent/10 flex items-center justify-center">
-              <Sparkles className="w-7 h-7 text-accent" />
+          <div className="text-center space-y-4 p-6 rounded-lg bg-card border border-border hover:border-primary transition-all">
+            <div className="w-14 h-14 mx-auto rounded-full bg-secondary flex items-center justify-center">
+              <Sparkles className="w-7 h-7 text-primary" />
             </div>
             <h3 className="text-xl font-semibold">Always Actionable</h3>
             <p className="text-muted-foreground">
@@ -73,9 +69,9 @@ const Landing = () => {
             </p>
           </div>
 
-          <div className="text-center space-y-4 p-6 rounded-2xl bg-card border border-border hover:border-purple-500/50 transition-all hover:shadow-lg">
-            <div className="w-14 h-14 mx-auto rounded-full bg-purple-500/10 flex items-center justify-center">
-              <Shield className="w-7 h-7 text-purple-500" />
+          <div className="text-center space-y-4 p-6 rounded-lg bg-card border border-border hover:border-primary transition-all">
+            <div className="w-14 h-14 mx-auto rounded-full bg-secondary flex items-center justify-center">
+              <Shield className="w-7 h-7 text-foreground" />
             </div>
             <h3 className="text-xl font-semibold">Your History, Secured</h3>
             <p className="text-muted-foreground">

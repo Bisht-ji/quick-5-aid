@@ -75,15 +75,15 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-secondary p-4">
-      <Card className="w-full max-w-md border-2">
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      <Card className="w-full max-w-md border">
         <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+          <CardTitle className="text-3xl font-bold text-foreground">
             {isLogin ? "Welcome Back" : "Create Account"}
           </CardTitle>
           <CardDescription>
             {isLogin
-              ? "Sign in to access your AI assistant"
+              ? "Sign in to access Hovering"
               : "Sign up to start getting instant answers"}
           </CardDescription>
         </CardHeader>
@@ -116,7 +116,7 @@ const Auth = () => {
             </div>
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-primary to-purple-600"
+              className="w-full"
               disabled={loading}
             >
               {loading ? (
